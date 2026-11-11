@@ -1,0 +1,33 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# The cluster experiment job: 5 grid sizes (3x3 .. 8x8), 5 line sizes with the same node
+# counts, and the version / re-poll checks on 6x6, all in ONE job (the
+# partition's time limit is 20 min). 5 nodes x 16 cores = 80 slots,
+# enough for 8x8 + base = 65 processes with one core each.
+# submit:  sbatch jobs/run_caas.job
+#SBATCH --job-name=wsn_cluster
+#SBATCH --partition=defq
+#SBATCH --time=00:20:00
+#SBATCH --mem=16G
+#SBATCH --nodes=5
+#SBATCH --ntasks-per-node=16
+#SBATCH --cpus-per-task=1
+#SBATCH --output=results/caas/logs/%x_%j.out
+cd "$SLURM_SUBMIT_DIR"
+module load openmpi/4.1.5-gcc-11.2.0-ux65npg
+echo "lscpu: $(lscpu | grep 'Model name' | sed 's/  */ /g')"
+module list 2>&1
+# memory check first (ASan + LeakSanitizer, Open MPI-internal leaks suppressed),
+# launched with mpirun on this host only - ASan misfires in MPI_Init under srun
+mkdir -p results/caas/memcheck
+for nv in 1 2 3; do
+    ASAN_OPTIONS=detect_leaks=1 LSAN_OPTIONS=suppressions=tests/lsan_openmpi.supp:print_suppressions=1 \
+        mpirun --bind-to none --novm --host "$(hostname -s):16" -np 10 \
+        bin/wsn_asan 3 3 -N $nv -B $nv -c 100 -t 3 -a 0.8 -d 0.2 -q -o results/caas/memcheck/N${nv}B${nv} \
+        > results/caas/memcheck/asan_N${nv}B${nv}.txt 2>&1
+    echo "MEMCHECK N$nv/B$nv rc=$? sanitizer_errors=$(grep -cE 'ERROR: (Address|Leak)Sanitizer|runtime error' results/caas/memcheck/asan_N${nv}B${nv}.txt)"
+done
+
+CASES=results/caas/logs/cases_$SLURM_JOB_ID.txt
+cat jobs/cases/caas_1_scaling.txt jobs/cases/caas_2_versions.txt > "$CASES"
+RAW=results/caas/raw BUDGET=1020 bash scripts/run_cases.sh "$CASES"

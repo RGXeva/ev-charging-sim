@@ -1,0 +1,6 @@
+local grid nbr       slope +1.25 us/node  R2 0.753
+local grid net       slope +0.06 us/node  R2 0.011
+local grid shutdown  slope +415.91 us/node  R2 0.599
+local line nbr       slope +0.69 us/node  R2 0.840
+local line net       slope -0.15 us/node  R2 0.162
+local line shutdown  slope +170.91 us/node  R2 0.128

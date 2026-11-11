@@ -1,0 +1,28 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Memory check: ASan + UBSan + LeakSanitizer build on one host (mpirun, not srun:
+# ASan misfires in MPI_Init under srun). Full stack unwinding so every leak can be
+# attributed; leaks inside Open MPI / hwloc are suppressed (tests/lsan_openmpi.supp).
+# submit:  sbatch jobs/memcheck.job
+#SBATCH --job-name=wsn_memcheck
+#SBATCH --partition=defq
+#SBATCH --time=00:05:00
+#SBATCH --mem=8G
+#SBATCH --nodes=1
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=1
+#SBATCH --output=results/caas/logs/%x_%j.out
+cd "$SLURM_SUBMIT_DIR"
+module load openmpi/4.1.5-gcc-11.2.0-ux65npg
+echo "ENV job=$SLURM_JOB_ID host=$(hostname -s) $(date '+%F %T')"
+md5sum bin/wsn_asan
+export ASAN_OPTIONS=detect_leaks=1:fast_unwind_on_malloc=0
+export LSAN_OPTIONS=suppressions=$PWD/tests/lsan_openmpi.supp:print_suppressions=1
+mkdir -p results/caas/memcheck2
+for nv in 1 2 3; do
+    out=results/caas/memcheck2/asan_N${nv}B${nv}.txt
+    mpirun -x ASAN_OPTIONS -x LSAN_OPTIONS --bind-to none --novm --host "$(hostname -s):16" -np 10 \
+        bin/wsn_asan 3 3 -N $nv -B $nv -c 100 -t 3 -a 0.8 -d 0.2 -q -o results/caas/memcheck2/N${nv}B${nv} \
+        > "$out" 2>&1
+    echo "MEMCHECK N$nv/B$nv rc=$? asan=$(grep -c 'ERROR: AddressSanitizer' $out) ubsan=$(grep -c 'runtime error' $out) lsan=$(grep -c 'ERROR: LeakSanitizer' $out)"
+done

@@ -1,0 +1,6 @@
+caas grid  nbr       slope +5.29 us/node  R2 0.928
+caas grid  net       slope +3.40 us/node  R2 0.279
+caas grid  shutdown  slope +590.73 us/node  R2 0.719
+caas line  nbr       slope +0.29 us/node  R2 0.448
+caas line  net       slope +5.28 us/node  R2 0.716
+caas line  shutdown  slope +549.91 us/node  R2 0.485

@@ -1,0 +1,46 @@
+# experiment label rep m n options
+E4_window 5x6_W0.2 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 0.2
+E4_window 5x6_W0.5 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 0.5
+E4_window 5x6_W1 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 1
+E4_window 5x6_W2 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 2
+E4_window 5x6_W5 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 5
+E5_poll 5x6_p20 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 20
+E5_poll 5x6_p100 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 100
+E5_poll 5x6_p200 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 200
+E5_poll 5x6_p1000 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 1000
+E5_poll 5x6_p5000 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 5000
+E6_load 5x6_a0.2 1 5 6 -c 200 -t 10 -a 0.2 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.4 1 5 6 -c 200 -t 10 -a 0.4 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.6 1 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.8 1 5 6 -c 200 -t 10 -a 0.8 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.95 1 5 6 -c 200 -t 10 -a 0.95 -d 0.25 -l 0 -q -N 2 -B 2
+E4_window 5x6_W0.2 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 0.2
+E4_window 5x6_W0.5 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 0.5
+E4_window 5x6_W1 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 1
+E4_window 5x6_W2 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 2
+E4_window 5x6_W5 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 5
+E5_poll 5x6_p20 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 20
+E5_poll 5x6_p100 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 100
+E5_poll 5x6_p200 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 200
+E5_poll 5x6_p1000 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 1000
+E5_poll 5x6_p5000 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 5000
+E6_load 5x6_a0.2 2 5 6 -c 200 -t 10 -a 0.2 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.4 2 5 6 -c 200 -t 10 -a 0.4 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.6 2 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.8 2 5 6 -c 200 -t 10 -a 0.8 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.95 2 5 6 -c 200 -t 10 -a 0.95 -d 0.25 -l 0 -q -N 2 -B 2
+E4_window 5x6_W0.2 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 0.2
+E4_window 5x6_W0.5 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 0.5
+E4_window 5x6_W1 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 1
+E4_window 5x6_W2 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 2
+E4_window 5x6_W5 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -W 5
+E5_poll 5x6_p20 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 20
+E5_poll 5x6_p100 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 100
+E5_poll 5x6_p200 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 200
+E5_poll 5x6_p1000 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 1000
+E5_poll 5x6_p5000 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2 -p 5000
+E6_load 5x6_a0.2 3 5 6 -c 200 -t 10 -a 0.2 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.4 3 5 6 -c 200 -t 10 -a 0.4 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.6 3 5 6 -c 200 -t 10 -a 0.6 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.8 3 5 6 -c 200 -t 10 -a 0.8 -d 0.25 -l 0 -q -N 2 -B 2
+E6_load 5x6_a0.95 3 5 6 -c 200 -t 10 -a 0.95 -d 0.25 -l 0 -q -N 2 -B 2

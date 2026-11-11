@@ -1,0 +1,6 @@
+bin/
+out/
+*.o
+.DS_Store
+__pycache__/
+results/tests/
